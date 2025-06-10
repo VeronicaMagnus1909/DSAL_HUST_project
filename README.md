@@ -1,2 +1,2 @@
 # DSAL_HUST_project
-Link video: ![link video](https://husteduvn.sharepoint.com/sites/DSA951/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20250610_210310-Meeting%20Recording.mp4?web=1&referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view) 
+Link video: ![link video](https://husteduvn.sharepoint.com/:v:/s/DSA951/ETeYb96W0j9PibndtqTn7nEBB9mhr4swzo562t27KFyveg?e=XD7m8N&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) 
