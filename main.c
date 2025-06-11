@@ -13,7 +13,7 @@ typedef struct Image {
 
 Image* head = NULL; // Biến head toàn cục để lưu trữ đầu danh sách ảnh
 
-// Hàm xóa màn hình (dùng system("clear") nếu chạy trên Linux)
+// Hàm xóa màn hình 
 void clearScreen() {
     system("cls");
 }
@@ -21,8 +21,9 @@ void clearScreen() {
 // Dừng màn hình để người dùng đọc kết quả
 void pause() {
     printf("\nPress Enter to continue...");
-    getchar(); // Đọc ký tự Enter
-    getchar(); // Đọc lần 2 nếu bị skip 
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); // Xóa hết ký tự thừa
+    getchar(); // Chờ người dùng nhấn Enter thật sự
 }
 
 // Tạo một ảnh mới
@@ -69,6 +70,76 @@ void addPhoto() {
     }
     printf("\nPhoto added successfully!\n");
     pause();
+}
+
+
+void addPhoto_auto() {
+    char sample_names[10][255] = {
+        "Sunset.jpg", "Beach.png", "Mountain.bmp", "Forest.jpeg", "River.tiff",
+        "City.jpg", "Desert.png", "Snow.bmp", "NightSky.jpeg", "Flower.tiff"
+    };
+
+    char sample_dates[10][11] = {
+        "01-01-2023", "01-01-2023", "01-01-2023", "20-04-2023", "30-05-2023",
+        "15-06-2023", "22-07-2023", "10-08-2023", "18-09-2023", "25-10-2023"
+    };
+
+    char sample_descs[10][255] = {
+        "captured by me",
+        "Capture by me",
+        "Snowy mountain peak",
+        "Green lush forest",
+        "Captured by me",
+        "Busy city skyline",
+        "Hot desert with cactus",
+        "Frozen lake in winter",
+        "Starry night sky",
+        "Colorful spring flowers"
+    };
+
+    int sample_sizes[10] = {1500, 1200, 1800, 1300, 1100, 1400, 1600, 1700, 1250, 1350};
+
+    for (int i = 0; i < 10; i++) {
+        Image* newImage = (Image*)malloc(sizeof(Image));
+        if (!newImage) {
+            printf("Memory allocation failed for image %d\n", i + 1);
+            return;
+        }
+
+        strcpy(newImage->name, sample_names[i]);
+        strcpy(newImage->date, sample_dates[i]);
+        strcpy(newImage->description, sample_descs[i]);
+        newImage->size = sample_sizes[i];
+        newImage->next = NULL;
+
+        if (head == NULL) {
+            head = newImage;
+        } else {
+            Image* temp = head;
+            while (temp->next != NULL)
+                temp = temp->next;
+            temp->next = newImage;
+        }
+    }
+
+    printf("\n10 sample photos added successfully!\n");
+    // show
+    if (head == NULL) {
+        printf("No photos in the album.\n");
+        pause();
+        return;
+    }
+
+    printf("\n%-20s %-12s %-10s %s\n", "Photo Name", "Date", "Size(KB)", "Description");
+    printf("------------------------------------------------------------------\n");
+
+    Image* temp = head;
+    while (temp != NULL) {
+        printf("%-20s %-12s %-10d %s\n", temp->name, temp->date, temp->size, temp->description);
+        temp = temp->next;
+    }
+    pause();
+
 }
 
 // Hiển thị tất cả ảnh
@@ -125,7 +196,7 @@ void searchPhoto() {
 }
 
 // Xoá ảnh
-// Idead: Dùng 2 con trỏ: temp để duyệt danh sách, prev để lưu ảnh trước đó; temp tìm thấy ảnh cần xóa, prev sẽ móc nối với cái đằng sau temp
+// Idea: Dùng 2 con trỏ: temp để duyệt danh sách, prev để lưu ảnh trước đó; temp tìm thấy ảnh cần xóa, prev sẽ móc nối với cái đằng sau temp
 //
 void deletePhoto() {
     char name[100];
@@ -164,7 +235,7 @@ void deletePhoto() {
 }
 
 // Sửa ảnh
-// Idead: Tìm ảnh theo tên, nếu tìm thấy thì sửa thông tin cho ảnh đó
+// Idea: Tìm ảnh theo tên, nếu tìm thấy thì sửa thông tin cho ảnh đó
 void editPhoto() {
     char name[100];
     printf("Enter photo name to edit: ");
@@ -222,35 +293,6 @@ void detectDuplicates() {
     pause();
 }
 
-// Menu chính
-void showMenu() {
-    int choice;
-    do {
-        clearScreen();
-        printf("====== Photo Album Manager ======\n");
-        printf("1. Add Photo\n");
-        printf("2. Delete Photo\n");
-        printf("3. Search Photo\n");
-        printf("4. Edit Photo\n");
-        printf("5. Display All Photos\n");
-        printf("6. Detect Duplicates\n");
-        printf("0. Exit\n");
-        printf("=> Your choice: ");
-        scanf("%d", &choice);
-
-        clearScreen();
-        switch (choice) {
-            case 1: addPhoto(); break;
-            case 2: deletePhoto(); break;
-            case 3: searchPhoto(); break;
-            case 4: editPhoto(); break;
-            case 5: displayPhotos(); break;
-            case 6: detectDuplicates(); break;
-            case 0: printf("Exiting program.\n"); break;
-            default: printf("Invalid choice. Try again.\n"); pause(); break;
-        }
-    } while (choice != 0);
-}
 
 // Ta viết các hàm sort name, date, size
 
@@ -426,24 +468,6 @@ void static_image_based_on_time() {
 }
 
 
-//Tim kiem dua tren cac tieu chi: vi du dua vao ten, dua vao ngay chup
-//input: lua chonj option name or time, if name -> nhap name, if time -> nhap time
-// output: image thoa man tieu chi
-void search_advanced()
-{
-    int search_choice;
-    printf("Search by:\n1. Name\n2. Date\n3. Size\n=> ");
-    scanf("%d", &search_choice);
-    switch(search_choice) {
-            // case 1: search_name(head);break;
-            // case 2: search_date(head); break;
-            // case 3: search_size(head); break;
-            default: printf("Invalid choice. Try again.\n"); pause(); break;
-        }
-
-
-
-}
 
 // xuat file txt: nhap thong tin album anh cua minh ra file txt
 void export_file()
@@ -585,6 +609,8 @@ void showMenu() {
         printf("More advanced function: \n");
         printf("8. Sort Image based on Name, Date,...\n");
         printf("9. Create relation graph\n");
+        printf("10. Export to file\n");
+        printf("11. Static image based on time\n");
         printf("0. Exit\n");
         printf("=> Your choice: ");
         scanf("%d", &choice);
@@ -600,6 +626,8 @@ void showMenu() {
             case 7: detectDuplicates(); break;
             case 8: sortImage(); break;
             case 9: create_relation_graph(); break;
+            case 10: export_file(); break;
+            case 11: static_image_based_on_time(); break;
             case 0: printf("Exiting program.\n"); break;
             default: printf("Invalid choice. Try again.\n"); pause(); break;
         }

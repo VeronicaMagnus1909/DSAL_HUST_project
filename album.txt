@@ -1,0 +1,69 @@
+THONG TIN ALBUM ANH
+===================
+
+Anh 1:
+Ten anh     : hust
+Ngay chup   : 01-02-2010
+Mo ta       : buc anh rat dep
+Dung luong  : 4 KB
+---------------------------
+Anh 2:
+Ten anh     : Sunset.jpg
+Ngay chup   : 01-01-2023
+Mo ta       : captured by me
+Dung luong  : 1500 KB
+---------------------------
+Anh 3:
+Ten anh     : Beach.png
+Ngay chup   : 01-01-2023
+Mo ta       : Capture by me
+Dung luong  : 1200 KB
+---------------------------
+Anh 4:
+Ten anh     : Mountain.bmp
+Ngay chup   : 01-01-2023
+Mo ta       : Snowy mountain peak
+Dung luong  : 1800 KB
+---------------------------
+Anh 5:
+Ten anh     : Forest.jpeg
+Ngay chup   : 20-04-2023
+Mo ta       : Green lush forest
+Dung luong  : 1300 KB
+---------------------------
+Anh 6:
+Ten anh     : River.tiff
+Ngay chup   : 30-05-2023
+Mo ta       : Captured by me
+Dung luong  : 1100 KB
+---------------------------
+Anh 7:
+Ten anh     : City.jpg
+Ngay chup   : 15-06-2023
+Mo ta       : Busy city skyline
+Dung luong  : 1400 KB
+---------------------------
+Anh 8:
+Ten anh     : Desert.png
+Ngay chup   : 22-07-2023
+Mo ta       : Hot desert with cactus
+Dung luong  : 1600 KB
+---------------------------
+Anh 9:
+Ten anh     : Snow.bmp
+Ngay chup   : 10-08-2023
+Mo ta       : Frozen lake in winter
+Dung luong  : 1700 KB
+---------------------------
+Anh 10:
+Ten anh     : NightSky.jpeg
+Ngay chup   : 18-09-2023
+Mo ta       : Starry night sky
+Dung luong  : 1250 KB
+---------------------------
+Anh 11:
+Ten anh     : Flower.tiff
+Ngay chup   : 25-10-2023
+Mo ta       : Colorful spring flowers
+Dung luong  : 1350 KB
+---------------------------
