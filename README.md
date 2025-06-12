@@ -1,1 +1,2 @@
 # DSAL_HUST_project
+Link video: ![link video](https://husteduvn.sharepoint.com/:v:/s/DSA951/ETeYb96W0j9PibndtqTn7nEBB9mhr4swzo562t27KFyveg?e=XD7m8N&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) 
